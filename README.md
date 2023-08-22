@@ -31,7 +31,7 @@ STORAGE=local
 STORAGE_FILE_PATH=<path_to_your_csv_file>
 ```
 The structure of the csv file should be the following
-
+**nb: order is very important here, as the program does not do any kind of validation**
 `version_name,url,previous_version`
 where:
 - version_name is the version you are dealing with

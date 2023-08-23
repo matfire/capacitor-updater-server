@@ -18,6 +18,16 @@ pull the image from ghcr (coming soon) or the docker registry
 docker pull matfire/capacitor-updater-server
 ```
 
+## Using this repo with capacitor-updater
+simple point the capacitor-updater plugin to the `/update` endpoint of an instance of this app in your capacitor config file, like so:
+```js
+  plugins: {
+    "CapacitorUpdater": {
+      "updateUrl": "https://example.com/update"
+    }
+  }
+```
+
 ## How to find new versions
 
 **beware: the installed version of the application is called builtin**
@@ -45,3 +55,5 @@ where:
 for example:
 `1.0.3,1.0,https://example.com/0.0.3.zip,1.0.2`
 means: download the 1.0.3 version if the current version is 1.0.2 and the build version (the native code version) is 1.0
+
+If using Docker, remember to mount the csv file as a volume to enable live modifications (you shouldn't need to restart the app each time you have a new release, just update the csv file)

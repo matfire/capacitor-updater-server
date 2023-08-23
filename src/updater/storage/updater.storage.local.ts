@@ -31,16 +31,21 @@ export class UpdaterStorageLocal implements StorageBase {
     }
   }
 
+  async findRecord(appInfo: AppInfos): Promise<any> {
+    await this.parseCSV();
+    return this.records.find((record) => record[3] === appInfo.version_name && record[1] === appInfo.version_build);
+  }
+
   async getNewVersion(appInfo: AppInfos): Promise<AppInfosResponse> {
-    const record = this.records.find((record) => record[2] === appInfo.version_name);
+    const record = await this.findRecord(appInfo);
     return {
       version: record[0],
-      url: record[1],
+      url: record[2],
     }
   }
   async hasNewVersion(appInfo: AppInfos): Promise<boolean> {
     await this.parseCSV();
-    const record = this.records.find((record) => record[2] === appInfo.version_name);
+    const record = await this.findRecord(appInfo);
     return Promise.resolve(record !== undefined);
   }
 }

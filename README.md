@@ -32,11 +32,13 @@ STORAGE_FILE_PATH=<path_to_your_csv_file>
 ```
 The structure of the csv file should be the following
 **nb: order is very important here, as the program does not do any kind of validation**
-`version_name,url,previous_version`
+`version_name,version_build,url,previous_version`
 where:
 - version_name is the version you are dealing with
+- version_build is the native code version (`versionName` in `build.gradle` or `CURRENT_PROJECT_VERSION` in `project.pbxproj`)
 - url is the url from which to download the .zip file for the update
 - previous_version is the version the version you are entering replaces
 
 for example:
-`0.0.3,https://example.com/0.0.3.zip,0.0.2` describes version 0.0.3 to be the version after 0.0.2 and tells the program it can downloaded from https://example.com/0.0.3.zip.
+`1.0.3,1.0,https://example.com/0.0.3.zip,1.0.2`
+means: download the 1.0.3 version if the current version is 1.0.2 and the build version (the native code version) is 1.0

@@ -1,5 +1,8 @@
 # Capacitor Updater Server
 
+![Docker Pulls](https://img.shields.io/docker/pulls/matfire/capacitor-updater-server)
+
+
 
 **this program is quite dumb by choice; it does not mean to replace the capgo's suite of tools, but rather provide a simple way to just have auto-updates features.**
 
@@ -10,7 +13,7 @@ This is a bare implementation of the self-hosted version described in Capgo's do
 
 ### Docker
 
-pull the image from ghcr (github container registry)
+pull the image from ghcr (coming soon) or the docker registry
 ```bash
 docker pull matfire/capacitor-updater-server
 ```
